@@ -1,6 +1,29 @@
 ## cpufp
 
+
 This is a cpu tool for testing the floating-points peak performance. Now it supports linux and x86-64 platform. It can automatically recognize the x86 instruction sets and select the proper set to do test.
+
+
+> success:gcc version 9.3.1 20200408 (Red Hat 9.3.1-2) (GCC)
+
+> failed: gcc version 4.8.5 20150623 (Red Hat 4.8.5-44) (GCC)
+```
+[ cpufp ]$ ./build.sh
+./gen.sh:行1: x86_support: 未找到命令
+cpufp_kernel_x86_avx512_vnni.s: Assembler messages:
+cpufp_kernel_x86_avx512_vnni.s:16: 错误：no such instruction: `vpdpbusd %zmm0,%zmm0,%zmm0'
+cpufp_kernel_x86_avx512_vnni.s:17: 错误：no such instruction: `vpdpbusd %zmm1,%zmm1,%zmm1'
+cpufp_kernel_x86_avx512_vnni.s:18: 错误：no such instruction: `vpdpbusd %zmm2,%zmm2,%zmm2'
+cpufp_kernel_x86_avx512_vnni.s:19: 错误：no such instruction: `vpdpbusd %zmm3,%zmm3,%zmm3'
+cpufp_kernel_x86_avx512_vnni.s:20: 错误：no such instruction: `vpdpbusd %zmm4,%zmm4,%zmm4'
+cpufp_kernel_x86_avx512_vnni.s:21: 错误：no such instruction: `vpdpbusd %zmm5,%zmm5,%zmm5'
+cpufp_kernel_x86_avx512_vnni.s:22: 错误：no such instruction: `vpdpbusd %zmm6,%zmm6,%zmm6'
+cpufp_kernel_x86_avx512_vnni.s:23: 错误：no such instruction: `vpdpbusd %zmm7,%zmm7,%zmm7'
+cpufp_kernel_x86_avx512_vnni.s:24: 错误：no such instruction: `vpdpbusd %zmm8,%zmm8,%zmm8'
+cpufp_kernel_x86_avx512_vnni.s:25: 错误：no such instruction: `vpdpbusd %zmm9,%zmm9,%zmm9'
+gcc: 错误：cpufp_kernel_x86_avx512_vnni.o：没有那个文件或目录
+```
+
 
 build:  
 sh build.sh
