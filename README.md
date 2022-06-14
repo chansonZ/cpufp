@@ -25,20 +25,59 @@ gcc: 错误：cpufp_kernel_x86_avx512_vnni.o：没有那个文件或目录
 ```
 
 
-build:  
+build:
+```
 sh build.sh
+```
 
-test:  
+test:
+```
 ./cpufp num_threads
+```
 
-clean:  
+clean:
+```
 sh clean.sh
+```
+
+--- 
+
+Intel(R) Xeon(R) Gold 6348 CPU @ 2.60GHz
+```
+[cpufp]$ ./cpufp 1
+Thread(s): 1
+avx512_vnni int8 perf: 587.4681 gops.
+avx512f fp32 perf: 175.6739 gflops.
+avx512f fp64 perf: 104.7225 gflops.
+fma fp32 perf: 109.5993 gflops.
+fma fp64 perf: 54.7310 gflops.
+avx fp32 perf: 55.1825 gflops.
+avx fp64 perf: 27.4206 gflops.
+sse fp32 perf: 27.4208 gflops.
+sse fp64 perf: 13.7427 gflops.
+
+[cpufp]$ ./cpufp 4
+Thread(s): 4
+avx512_vnni int8 perf: 2348.0148 gops.
+avx512f fp32 perf: 701.4521 gflops.
+avx512f fp64 perf: 426.6318 gflops.
+fma fp32 perf: 443.9049 gflops.
+fma fp64 perf: 221.6950 gflops.
+avx fp32 perf: 222.1234 gflops.
+avx fp64 perf: 111.2992 gflops.
+sse fp32 perf: 111.2053 gflops.
+sse fp64 perf: 55.6107 gflops.
+
+```
+
+
 
 [UPDATE] 2019-10-09  
 Add support of avx512f and avx512_vnni instructions.
 
 Example on Intel i7 1065G7(SunnyCove, 4 cores, 8 threads, base@1.3GHz, turbo@3.9GHz):
 
+```
 $ ./cpufp 1  
 Thread(s): 1  
 avx512_vnni int8 perf: 484.2888 gops.  
@@ -50,6 +89,7 @@ avx fp32 perf: 58.7558 gflops.
 avx fp64 perf: 26.9633 gflops.  
 sse fp32 perf: 31.0415 gflops.  
 sse fp64 perf: 15.5088 gflops.  
+
 $ ./cpufp 4  
 Thread(s): 4  
 avx512_vnni int8 perf: 1783.9178 gops.  
@@ -61,6 +101,7 @@ avx fp32 perf: 204.9414 gflops.
 avx fp64 perf: 89.2331 gflops.  
 sse fp32 perf: 111.3561 gflops.  
 sse fp64 perf: 55.7209 gflops.  
+```
 
 The next version may support ARMv7 and ARMv8 architectures.  
 Welcome for bug reporting.
